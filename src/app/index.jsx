@@ -9,7 +9,6 @@ const store = createStore(
 	rootReducer,
 	)
 
-console.log('index: ', store.getState())
 store.subscribe(() => {
   	console.log('index: ', store.getState())
 })

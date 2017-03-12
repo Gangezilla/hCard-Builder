@@ -5,12 +5,16 @@ import { reduxForm } from 'redux-form'
 
 const mapStateToProps = (state) => {
   return {
+    //values: state.form.hcard.values,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    handleSubmit: (props) => {
 
+      console.log(props)
+    }
   }
 }
 

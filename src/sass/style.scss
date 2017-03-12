@@ -1,0 +1,62 @@
+// Positioning
+// Box model
+// Typographic
+// Visual
+
+//Variables
+//need to define some variables in here for colours, like the navy and the grays, but will do it when i'm not on a plane...
+
+//Container for both elements
+.app-container {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+//container for card form
+.card-form {
+
+	@media (min-width: 450px) {
+		//width in here, outer-container blah blah
+	}
+}
+
+//Top level header
+.top-title {
+	margin-top: 40px;
+	margin-bottom: 0px;
+	color: #394F63;
+}
+
+//Individual section headings
+.section-title {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	display: block;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #C3CACC;
+	border-bottom: 1px solid #C3CACC
+}
+
+//Form styling
+.form-label {
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #394F63;
+}
+
+.form-input {
+	margin-top: 5px;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid #C3CACC;
+}
+
+//Buttons
+.btn {
+	height: 40px;
+	width: 200px;
+	border-radius: 5px;
+}

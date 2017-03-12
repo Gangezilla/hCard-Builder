@@ -1,6 +1,7 @@
 const hcardReducer = (state, action) => {
 	if (state === undefined) {
 		return {
+			values: '',
 		}
 	}
 
