@@ -1,31 +1,36 @@
 import { connect } from 'react-redux'
 import hcard from '../components/hcard-component.jsx'
-import { reduxForm } from 'redux-form'
-//import { addNewRecipe, openRecipeModal, closeRecipeModal, deleteRecipe, editR, openEditModal } from '../actions/recipeIndex-actions.jsx'
+import { reduxForm, formValueSelector } from 'redux-form'
 
 const mapStateToProps = (state) => {
   return {
-    //values: state.form.hcard.values,
+    givenName: formValueSelector('hcard')(state, 'givenName'),
+    surname: formValueSelector('hcard')(state, 'surname'),
+    email: formValueSelector('hcard')(state, 'email'),
+    phone: formValueSelector('hcard')(state, 'phone'),
+    house: formValueSelector('hcard')(state, 'houseName'),
+    street: formValueSelector('hcard')(state, 'street'),
+    suburb: formValueSelector('hcard')(state, 'suburb'),
+    state: formValueSelector('hcard')(state, 'state'),
+    postcode: formValueSelector('hcard')(state, 'postcode'),
+    country: formValueSelector('hcard')(state, 'country'),
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleSubmit: (props) => {
-
-      console.log(props)
+    imageUpload: (e) => {
+      e.preventDefault();
+      
     }
   }
 }
 
-// const HcardContainer = connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(hcard)
 
-// export default HcardContainer
-
-export default connect(mapStateToProps,
-                       mapDispatchToProps)(reduxForm({
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+  )
+(reduxForm({
   form: 'hcard'
 })(hcard))

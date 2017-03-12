@@ -1,7 +1,7 @@
 import React from 'react'
 
-const renderField = ({ input, label, type, placeholder, meta: { touched, error, warning } }) => (
-  <div>
+export const renderField = ({ input, label, type, placeholder, meta: { touched, error, warning } }) => (
+  <div className="form-field-container">
     <label className="form-label">{label}</label>
     <div>
       <input className="form-input" {...input} placeholder={placeholder} type={type}/>
@@ -10,4 +10,24 @@ const renderField = ({ input, label, type, placeholder, meta: { touched, error, 
   </div>
 )
 
-export default renderField
+// export const fileInput = ({ input }) => {
+//   constructor(props) {
+//     super(props)
+//     this.onChange = this.onChange.bind(this)
+//   }
+
+//   onChange(e) {
+//     const { input: { onChange } } = this.props
+//     onChange(e.target.files[0])
+//   }
+
+//   render() {
+//     const { input: { value } } = this.props
+
+//     return (<input
+//       type="file"
+//       value={value}
+//       onChange={this.onChange}
+//     />)
+//   }
+// }
