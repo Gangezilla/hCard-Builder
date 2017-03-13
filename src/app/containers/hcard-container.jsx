@@ -1,6 +1,8 @@
 import { connect } from 'react-redux'
 import hcard from '../components/hcard-component.jsx'
 import { reduxForm, formValueSelector } from 'redux-form'
+import { updateImg } from '../actions/hcard-actions.jsx'
+
 
 const mapStateToProps = (state) => {
   return {
@@ -14,13 +16,17 @@ const mapStateToProps = (state) => {
     state: formValueSelector('hcard')(state, 'state'),
     postcode: formValueSelector('hcard')(state, 'postcode'),
     country: formValueSelector('hcard')(state, 'country'),
+    avatar: state.hcardReducer.avatar
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    imageUpload: (e) => {
-      e.preventDefault();
+    onAttachment: (e) => {
+      var reader = new FileReader()
+      reader.readAsDataURL(e.target.files[0])
+      console.log(reader)
+      setTimeout(() => dispatch(updateImg(reader.result)), 1000)
       
     }
   }

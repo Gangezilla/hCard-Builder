@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { Field, reduxForm } from 'redux-form'
-import { renderField } from '../helpers/form-fields.jsx'
+import { renderField, FileInput } from '../helpers/form-fields.jsx'
 import { validators } from '../helpers/form-validators.jsx';
 
 const hcard = ({
-	givenName, surname, email, phone, house, street, suburb, state, postcode, country
+	givenName, surname, email, phone, house, street, suburb, state, postcode, country, onAttachment, avatar
 	 }) => {
-	console.log('GN:',givenName)
+
 	return (
 		<div className="app-container">
 			<div className="card-form">
@@ -35,7 +35,7 @@ const hcard = ({
 									validate={[ validators.required, validators.email ]}/>
 							<Field 	name="phone"
 									component={renderField}
-									type="number"
+									type="tel"
 									label="Phone Number"
 									validate={[ validators.required ]}/>
 						</div>
@@ -67,8 +67,11 @@ const hcard = ({
 						<div className="form-row">
 							<Field 	name="postcode"
 									component={renderField}
+									pattern="[0-9]*"
+									inputmode="numeric"
 									type="text"
 									label="Postcode"
+									maxLength="4"
 									validate={[ validators.required, validators.postcode ]}/>
 							<Field 	name="country"
 									component={renderField}
@@ -78,19 +81,26 @@ const hcard = ({
 						</div>
 					</div>
 					<div className="btn-container">
-						<input type="file" className="btn btn-avatar" onClick={(e) => imageUpload(e)}> Upload Avatar </input>
+						<label className="file-container btn btn-avatar">
+							Upload Avatar
+							<input
+						        type="file"
+						        className="file"
+						        onChange={(e) => onAttachment(e)}
+						        />
+						</label>
 						<button className="btn btn-submit"> Create hCard </button>
 					</div>
 				</form>
 			</div>
-			
+
 			<div className="card-container">
 				<div className="card">
 					<div className="inner-card">
 						<span className="preview"> hCard Preview </span>
 						<div className="card-title">
 							<span className="card-title-span"> {givenName} {surname} </span>
-							<img className="card-title-avatar" src="http://www.placehold.it/100x150" />
+							<img className="card-title-avatar" src={avatar} />
 						</div>
 						<div className="card-fields">
 							<div className="value-container">
@@ -111,10 +121,14 @@ const hcard = ({
 								{state}</span>
 							</div>
 							<div className="value-container">
-								<span className="card-subheading">Postcode</span>
-								<span className="card-value"> {postcode} </span>
-								<span className="card-subheading"> Country </span>
-								<span className="card-value"> {country} </span>
+								<div className="inner-value-container">
+									<span className="card-subheading">Postcode</span>
+									<span className="card-value"> {postcode} </span>
+								</div>
+								<div className="inner-value-container">
+									<span className="card-subheading"> Country </span>
+									<span className="card-value"> {country} </span>
+								</div>
 							</div>
 						</div>
 					</div>

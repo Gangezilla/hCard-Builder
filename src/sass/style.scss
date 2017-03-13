@@ -3,9 +3,6 @@
 // Typographic
 // Visual
 
-//Imports
-@import "./neat/neat";
-
 //Variables
 $navy: #394F63;
 $gray: #C3CACC;
@@ -40,6 +37,10 @@ $light-blue: #38A8DF;
 	@media (min-width: 426px) {
 		width: 430px;
 	}
+
+	@media (min-width: 1440px) {
+			max-width: 800px;
+		}
 }
 
 //Top level header
@@ -47,16 +48,17 @@ $light-blue: #38A8DF;
 	margin-top: 40px;
 	margin-bottom: 0px;
 	color: $navy;
+	font-size: 30px;
 }
 
 //Individual section headings
 .section-title {
 	clear: both;
-	width: 95%;
+	width: 96%;
 	margin-top: 20px;
 	margin-bottom: 10px;
 	display: block;
-	font-size: 18px;
+	font-size: 14px;
 	text-transform: uppercase;
 	color: $gray;
 	border-bottom: 1px solid $gray;
@@ -68,12 +70,12 @@ $light-blue: #38A8DF;
 
 //Form styling
 .form-label {
-	font-size: 16px;
+	font-size: 14px;
 	text-transform: uppercase;
 	color: $navy;
 
 	@media (min-width: 426px) {
-		font-size: 14px;
+		font-size: 12px;
 	}
 }
 
@@ -97,12 +99,19 @@ $light-blue: #38A8DF;
 	border-radius: 5px;
 	border: 1px solid $gray;
 	width: 100%;
-	font-size: 18px;
+	font-size: 16px;
 	color: #585858;
+	transition: 0.4s;
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 5px $light-blue;
+		border: 1px solid $light-blue;
+	}
 
 	@media (min-width: 426px) {
 		height: 30px;
-		font-size: 15px;
+		font-size: 14px;
 	}
 
 }
@@ -115,7 +124,7 @@ $light-blue: #38A8DF;
 
 		@media (min-width: 426px) {
 			float: left;
-			width: 47%;
+			width: 46%;
 			margin-right: 12px;
 		}
 	}
@@ -127,6 +136,7 @@ $light-blue: #38A8DF;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	margin-top: 15px;
 
 	@media (min-width: 426px) {
 		justify-content: flex-start;
@@ -134,29 +144,54 @@ $light-blue: #38A8DF;
 	}
 }
 .btn {
-	height: 40px;
 	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	margin-top: 10px;
 	border-radius: 5px;
 	border: 0;
-	font-size: 16px;
+	font-size: 18px;
 	color: white;
+	cursor: pointer;
+	text-align: center;
 
 	@media (min-width: 426px) {
-		@include grid-column(6);
-		margin-left: 10px;
+		width: 46%;
+		margin-right: 12px;
+		margin-left: 0px;
 	}
 
 	&.btn-avatar {
 		background-color: $blue-gray;
 		box-shadow: inset 0 -5px 0px 0px #4F6571;
+
+		&:hover {
+			background-color: #4F6571;
+			transition: 0.4s;
+		}
 	}
 
 	&.btn-submit {
 		background-color: $light-blue;
 		box-shadow: inset 0 -5px 0px 0px #2D93C7;
+
+		&:hover {
+			background-color: #2D93C7;
+			transition: 0.4s;
+		}
 	}
 }
+
+.file-container {
+	overflow: hidden;
+    position: relative;
+
+    & .file {
+	    display: none;
+	}
+}
+
+
 
 //Card on right with values in it.
 .card-container {
@@ -186,22 +221,28 @@ $light-blue: #38A8DF;
 		align-self: center;
 		padding-bottom: 25px;
 		background-color: white;
+		box-shadow: 0px 3px 0px 0px;
 
 		@media (min-width: 426px) {
-			width: 80%;
-		}
-
-		@media (min-width: 1440px) {
-			width: 400px;
+			max-width: 420px;
+			width: 100%;
 		}
 	}
 
 	.value-container {
 		margin-left: 20px;
 		margin-right: 20px;
+		padding-top: 10px;
 		border-bottom: 1px solid $gray;
 		min-height: 20px;
 		overflow-x: hidden;
+
+		.inner-value-container {
+			display: inline;
+			float: left;
+			width: 47%;
+			white-space: nowrap;
+		}
 	}
 
 	.card-subheading {
@@ -232,6 +273,12 @@ $light-blue: #38A8DF;
 		padding: 20px;
 		margin-bottom: 30px;
 		background-color: $navy;
+
+		.card-title-avatar {
+			width: 100px;
+			height: 100px;
+			box-shadow: 0px 3px 1px 0px;
+		}
 
 		.card-title-span {
 			overflow-x: hidden;
