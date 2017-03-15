@@ -12,7 +12,7 @@ Note:
 
 I unfortunately don't have a Windows machine to test on, so haven't been able to check what it looks like on IE10/IE11. Judging by my love of flexbox, some of the positioning might look a bit off on them, but the rest of the elements should look okay. 
 
-##Setup Instructions: 
+## Setup Instructions: 
 
 1. Download zip of project and unzip, or, clone the repo into your favourite directory.
 2. If you're in a rush, you can just head straight into the compiled-app directory and open index.html and it should be up and running locally right away. If you want to set it up, you're going to need to do a few things first.
