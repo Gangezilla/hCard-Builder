@@ -17,28 +17,10 @@ var config = {
             test: /\.jsx?/,
             loader: 'babel-loader',
             query: {
-                        presets: ['es2015'],
-                    },
-            exclude: /node_modules/
+                    presets: ['es2015', 'react'],
+                },
         }]
     },
-
-    // plugins: [
-    //     new webpack.optimize.OccurenceOrderPlugin(),
-    //     new webpack.DefinePlugin({
-    //         'process.env': {
-    //             'NODE_ENV': JSON.stringify('production'),
-    //         }
-    //     }),
-    //     new webpack.optimize.UglifyJsPlugin({
-    //         compress: {
-    //             warnings: false,
-    //         },
-    //         output: {
-    //             comments: false,
-    //         },
-    //     }),
-    // ]
 };
 
 module.exports = config;
