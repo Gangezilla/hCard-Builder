@@ -22,3 +22,11 @@ I unfortunately don't have a Windows machine to test on, so haven't been able to
 6. Final step is to compile our JS, which is done using Webpack. Webpack should have been installed when you installed your other node packages, but if it wasn't it may need to be installed globally. If this is the case, run `npm install webpack` to make sure it's installed.
 7. After this, run `webpack -d` to compile the Javascript.
 8. Head into the src folder and open up this index.html and everything should be up and running. 
+
+## Troubleshooting:
+If this still doesn't work for you, try and remove your npm packages in the main directory:
+`rm -rf node_modules`
+and then clean the npm cache:
+`npm cache clean`
+then try to install the NPM modules again
+`npm install`
